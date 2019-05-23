@@ -7,6 +7,23 @@ There is an overrepresentation of men in suicide deaths at every level of analys
 
 Interesting to see that more suicides per 100k occur in older ages and decreases with age too. It's true for both female and males. This may be due to suicides diluting into a bigger population, makes sense because as people get older the more they die so there are few left to commit suicide. This, plus a tendency to commiting suicide, it reflects on the proportion.
 
+We observe from the dataset that -
+
+  * Total 101 unique countries are present in dataset
+  * The age feature has 6 unique age groups
+  * The generation feature has 6 types of generation
+  * Generation X has higher rates of suicide
+  * Suicide rates are higher in Russian Federation, United States and Japan
+  * Suicide rates are too low in many countries.
+  * Suicide rates are moderate in France, Ukraine, Germany, Brazil, Republic of Korea, Poland, Thailand,     United Kingdom, Canada, Italy, Mexico, etc.
+  * <b>The Greatest Generation</b>: Born between 1901 - 1924, they are those who experienced the Great Depression and World War II in their adulthood.
+  * <b>The Silent Generation</b>: Born in between 1924 - 1945, coming of age during the postwar happiness.The Silent Generation children grew up in conditions complicated by war and economic downturn.
+  * <b>Baby Boomers</b>: Those born in the years after World War II. These are the men and women who tuned in,got high, dropped out, dodged the draft, swung in the Sixties and became hippies in the Seventies. The first tolerant generation. Envision technology and innovation as requiring a learning process.
+  * <b>Generation X</b>: Born between 1965 and 1980, they are the “latch-key kids” who grew up street-smart but isolated, often with divorced or career-driven parents.
+  * <b>Millennials</b>: Researchers and commentators use birth years ranging from the early 1980s to the early 2000s. Known as sophisticated, technology wise, immune to most traditional marketing and sales pitches,they’ve seen it all and been exposed to it all since early childhood.
+  * <b>Generation Z</b>: It is the generation born after 1995 and they have never known a world without computers   and cell phones.
+
+
 * <b>Loading the Dataset</b>: The dataset used is a collection of Suicide datasets and can be found [here](https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016) – download it. Once you have downloaded the dataset, open your jupyter notebook and let’s get to work. Our first step is to load in the data using pandas read_csv function.
 
 ```python
