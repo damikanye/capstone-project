@@ -7,7 +7,7 @@ There is an overrepresentation of men in suicide deaths at every level of analys
 
 Interesting to see that more suicides per 100k occur in older ages and decreases with age too. It's true for both female and males. This may be due to suicides diluting into a bigger population, makes sense because as people get older the more they die so there are few left to commit suicide. This, plus a tendency to commiting suicide, it reflects on the proportion.
 
-We observe from the dataset that -
+I observe from the dataset that -
 
   * Total 101 unique countries are present in dataset
   * The age feature has 6 unique age groups
