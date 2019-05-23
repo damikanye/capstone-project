@@ -5,6 +5,8 @@ Suicide rates are decreasing globally of those countries that show clear linear 
 There is a weak positive relationship between a countries GDP (per capita) and suicide rate the highest suicide rate ever recorded in a demographic (for 1 year) is 225 (per 100k population).
 There is an overrepresentation of men in suicide deaths at every level of analysis (globally, at a continent and country level). Globally, the male rate is ~3.5x higher. Africa has very few countries providing suicide data.
 
+Interesting to see that more suicides per 100k occur in older ages and decreases with age too. It's true for both female and males. This may be due to suicides diluting into a bigger population, makes sense because as people get older the more they die so there are few left to commit suicide. This, plus a tendency to commiting suicide, it reflects on the proportion.
+
 * <b>Loading the Dataset</b>: The dataset used is a collection of Suicide datasets and can be found [here](https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016) – download it. Once you have downloaded the dataset, open your jupyter notebook and let’s get to work. Our first step is to load in the data using pandas read_csv function.
 
 ```python
@@ -20,4 +22,80 @@ df = pd.read_csv('master.csv')
 df.drop(["HDI for year",'country-year'],inplace=True,axis=1)
 ```
 
-##Data Visualization 
+## Data Visualization 
+
+Now we will plot some graphs to explore the relationships between various features of the dataset
+
+* Firstly, we will plot a graph to see that the dataset includes equal amount of data for both genders
+
+```python
+p = sns.countplot(x="sex", data=df)
+```
+![Jupyter](images/Capture1.PNG)
+
+
+* Secondly, we will show the correlations between the features in the dataset
+
+```python
+_ = sns.heatmap(df.corr(), annot=True)
+```
+![Jupyter](images/Capture2.PNG)
+
+
+* Thirdly, we will show the numbers of suicides commited by the people of different age groups across both the genders. We can observe that the suicide rate is higher in the age group of 35-54 years in both female and male populations and it is lowest in age group of 5-14 years
+
+```python
+p = sns.barplot(x='sex', y='suicides_no', hue='age', data=df)
+```
+![Jupyter](images/Capture3.PNG)
+
+
+* The plot shows the numbers of suicides commited by the people of different generations across both the genders. Here, we can see that suicide numbers are higher in the generation of Boomers, whereas it is lowest in Generation Z.
+
+```python
+p = sns.barplot(x='sex', y='suicides_no', hue='generation', data=df)
+```
+![Jupyter](images/Capture4.PNG)
+
+* The plot shows the number of suicides for both males and females of different age groups for every year from 1985 to 2016. <b>Note:</b>You can decrease the col_wrap to 3 or 2 if you want to see the graph very well.
+
+```python
+p = sns.catplot('sex','suicides_no',hue='age',col='year',data=df,kind='bar',col_wrap=5)
+```
+![Jupyter](images/Capture5.PNG)
+
+* The plot shows the change in suicide numbers for people of different age groups for every year
+
+```python
+age_15 = df.loc[df.loc[:, 'age']=='15-24 years',:]
+age_35 = df.loc[df.loc[:, 'age']=='35-54 years',:]
+age_75 = df.loc[df.loc[:, 'age']=='75+ years',:]
+age_25 = df.loc[df.loc[:, 'age']=='25-34 years',:]
+age_55 = df.loc[df.loc[:, 'age']=='55-74 years',:]
+age_5 = df.loc[df.loc[:, 'age']=='5-14 years',:]
+```
+```python
+p = sns.lineplot(x='year', y='suicides_no', data=age_5)
+q = sns.lineplot(x='year', y='suicides_no', data=age_15)
+r = sns.lineplot(x='year', y='suicides_no', data=age_25)
+s = sns.lineplot(x='year', y='suicides_no', data=age_35)
+t = sns.lineplot(x='year', y='suicides_no', data=age_55)
+t = sns.lineplot(x='year', y='suicides_no', data=age_75)
+
+_ = plt.legend(['5-14 years', '15-24 years', '25-34 years', '35-54 years', '55-74 years', '75+ years'])
+
+```
+![Jupyter](images/Capture6.PNG)
+
+* The plot shows the change in suicide numbers for both male and female populations for each year
+```python
+male_population = df.loc[df.loc[:, 'sex']=='male',:]
+female_population = df.loc[df.loc[:, 'sex']=='female',:]
+```
+```python
+p = sns.lineplot(x='year', y='suicides_no', data=male_population)
+q = sns.lineplot(x='year', y='suicides_no', data=female_population)
+
+_ = plt.legend(['males', 'females'])
+```
+![Jupyter](images/Capture7.PNG)
