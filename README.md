@@ -116,3 +116,28 @@ q = sns.lineplot(x='year', y='suicides_no', data=female_population)
 _ = plt.legend(['males', 'females'])
 ```
 ![Jupyter](images/Capture7.PNG)
+
+* Suicides vs generations per year
+```python
+df = df[['suicides_no','generation','year']].groupby(['generation','year']).sum().reset_index()
+plt.figure(figsize=(25,10))
+sns.set(font_scale=1.5)
+plt.xticks(rotation=90)
+sns.barplot(y='suicides_no', x='year', hue='generation', data=df, palette='deep').set_title('Suicides vs generations per year')
+```
+![Jupyter](images/Capture8.PNG)
+
+From above,
+- The suicide rate of Generation X -( born between 1965 and 1980) is increased from the year 1995.
+- The suicide rate of the Silent Generation is high and increased highly from 1985-2010.
+- The suicide rate of Boomers was high in years 1991-1994 and was the generation with most suicides from 1991 till 2008.
+- The suicide rate of Millenials has increased from the year 2011.
+Generation Z has a very low rate of suicides.
+
+* Suicides by year distribution
+```python
+df[['year','suicides_no']].groupby(['year']).sum().plot()
+```
+![Jupyter](images/Capture9.PNG)
+
+From above, I observed that the suicide rate had grown rapidly from the year 1990 and also the rate of suicide has drastically reduced in the year 2016
