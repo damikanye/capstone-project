@@ -138,6 +138,6 @@ Generation Z has a very low rate of suicides.
 ```python
 df[['year','suicides_no']].groupby(['year']).sum().plot()
 ```
-![Jupyter](images/Capture9 .PNG)
+![Jupyter](images/Capture9.PNG)
 
 From above, I observed that the suicide rate had grown rapidly from the year 1990 and also the rate of suicide has drastically reduced in the year 2016
